@@ -1,0 +1,12 @@
+{
+  "name": "Agrolit, PE Šmartno",
+  "latitude": 46.126602,
+  "longitude": 14.474604,
+  "icon": "/_files/15/pin.png",
+  "iconWidth": 60,
+  "iconHeight": 90,
+  "infoWindow": {
+    "title": "Agrolit, PE Šmartno",
+    "address": "Juričeva c. 14"
+  }
+}

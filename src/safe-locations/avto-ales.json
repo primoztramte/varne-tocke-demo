@@ -1,0 +1,12 @@
+{
+  "name": "Avto Aleš",
+  "latitude": 46.380786,
+  "longitude": 15.454064,
+  "icon": "/_files/15/pin.png",
+  "iconWidth": 60,
+  "iconHeight": 90,
+  "infoWindow": {
+    "title": "Avto Aleš",
+    "address": "Gmajna 16"
+  }
+}

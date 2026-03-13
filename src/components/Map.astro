@@ -1,0 +1,34 @@
+---
+// Map.astro
+interface Props {
+  center?: [number, number];
+  zoom?: number;
+}
+
+const { center = [15.0, 46.15], zoom = 8.5 } = Astro.props;
+---
+
+<link href='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css' rel='stylesheet' />
+
+<div
+  id="map"
+  class="w-full h-full"
+  data-center={JSON.stringify(center)}
+  data-zoom={zoom}
+></div>
+
+<script>
+  import { initializeMap } from '../scripts/map';
+
+  const mapEl = document.getElementById('map');
+  if (mapEl) {
+    const center = JSON.parse(mapEl.dataset.center || '[0, 0]') as [number, number];
+    const zoom = parseFloat(mapEl.dataset.zoom || '7');
+
+    initializeMap({
+      containerId: 'map',
+      center: JSON.parse(mapEl.dataset.center || '[0, 0]') as [number, number],
+      zoom,
+    });
+  }
+</script>
