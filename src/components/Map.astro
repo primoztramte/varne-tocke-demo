@@ -27,9 +27,9 @@ const { pins = [], center = [15.0, 46.15], zoom = 8.5 } = Astro.props;
 
   const mapEl = document.getElementById('map');
   if (mapEl) {
-    const center = JSON.parse(mapEl.dataset.center || '[0, 0]') as [number, number];
-    const zoom = parseFloat(mapEl.dataset.zoom || '7');
-    const pins = JSON.parse(mapEl.dataset.pins || '[]') as Pin[];
+    const center = JSON.parse(mapEl.dataset.center!) as [number, number];
+    const zoom = parseFloat(mapEl.dataset.zoom!);
+    const pins = JSON.parse(mapEl.dataset.pins!) as Pin[];
 
     initializeMap({
       containerId: 'map',
