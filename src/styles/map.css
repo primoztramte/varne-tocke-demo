@@ -6,3 +6,7 @@
   padding: 0;
   line-height: 16px;
 }
+
+.mapboxgl-popup-close-button:focus {
+  outline: none;
+}
