@@ -1,11 +1,13 @@
 ---
-// Map.astro
+import type { Pin } from '../types/map-types';
+
 interface Props {
+  pins?: Pin[];
   center?: [number, number];
   zoom?: number;
 }
 
-const { center = [15.0, 46.15], zoom = 8.5 } = Astro.props;
+const { pins = [], center = [15.0, 46.15], zoom = 8.5 } = Astro.props;
 ---
 
 <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css' rel='stylesheet' />
@@ -15,20 +17,24 @@ const { center = [15.0, 46.15], zoom = 8.5 } = Astro.props;
   class="w-full h-full"
   data-center={JSON.stringify(center)}
   data-zoom={zoom}
+  data-pins={JSON.stringify(pins)}
 ></div>
 
 <script>
   import { initializeMap } from '../scripts/map';
+  import type { Pin } from '../types/map';
 
   const mapEl = document.getElementById('map');
   if (mapEl) {
     const center = JSON.parse(mapEl.dataset.center || '[0, 0]') as [number, number];
     const zoom = parseFloat(mapEl.dataset.zoom || '7');
+    const pins = JSON.parse(mapEl.dataset.pins || '[]') as Pin[];
 
     initializeMap({
       containerId: 'map',
-      center: JSON.parse(mapEl.dataset.center || '[0, 0]') as [number, number],
+      center,
       zoom,
+      pins,
     });
   }
 </script>

@@ -1,6 +1,17 @@
 ---
 import Map from '../components/Map.astro';
 import '../styles/global.css';
+import { getCollection } from 'astro:content';
+
+const locations = await getCollection('safeLocations');
+const pins = locations.map((loc) => ({
+  id: loc.id,
+  latitude: loc.data.latitude,
+  longitude: loc.data.longitude,
+  name: loc.data.name,
+  title: loc.data.infoWindow.title,
+  address: loc.data.infoWindow.address,
+}));
 ---
 
 <html lang="en">
@@ -14,6 +25,7 @@ import '../styles/global.css';
 	</head>
 	<body class="h-screen m-0">
 		<Map
+      pins={pins}
       center={[15.0, 46.15]}
       zoom={8.5}
     />
