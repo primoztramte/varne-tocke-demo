@@ -22,7 +22,7 @@ const { pins = [], center = [15.0, 46.15], zoom = 8.5 } = Astro.props;
 
 <script>
   import { initializeMap } from '../scripts/map';
-  import type { Pin } from '../types/map';
+  import type { Pin } from '../types/map-types';
 
   const mapEl = document.getElementById('map');
   if (mapEl) {
