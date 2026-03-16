@@ -3,7 +3,7 @@ import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
 const safeLocations = defineCollection({
-  loader: glob({ base: './src/data', pattern: '**/*.json' }),
+  loader: glob({ base: './src/data/locations', pattern: '**/*.json' }),
    schema: z.object({
     name: z.string(),
     latitude: z.number(),
