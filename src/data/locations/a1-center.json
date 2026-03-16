@@ -5,5 +5,7 @@
   "infoWindow": {
     "title": "A1 Center",
     "address": "Prešernov trg 2"
-  }
+  },
+  "iconWidth": 60,
+  "iconHeight": 90
 }
