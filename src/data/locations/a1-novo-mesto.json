@@ -2,9 +2,6 @@
   "name": "A1 Novo mesto",
   "latitude": 45.8124906716,
   "longitude": 15.1735660735355,
-  "icon": "/_files/15/pin.png",
-  "iconWidth": 60,
-  "iconHeight": 90,
   "infoWindow": {
     "title": "A1 Novo mesto",
     "address": "Seidlova cesta 42"
