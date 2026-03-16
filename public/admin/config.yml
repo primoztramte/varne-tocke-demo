@@ -1,0 +1,33 @@
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: "public/_files"
+public_folder: "/_files"
+
+collections:
+  - name: "locations"
+    label: "Locations"
+    label_singular: "Location"
+    folder: "src/data/locations"
+    create: true
+    delete: true
+    extension: "json"
+    format: "json"
+    identifier_field: "name"
+    slug: "{{slug}}"
+    summary: "{{name}}"
+
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Latitude", name: "latitude", widget: "number", value_type: "float" }
+      - { label: "Longitude", name: "longitude", widget: "number", value_type: "float" }
+      - { label: "Icon", name: "icon", widget: "image", required: false }
+      - { label: "Icon Width", name: "iconWidth", widget: "number", value_type: "int", required: false }
+      - { label: "Icon Height", name: "iconHeight", widget: "number", value_type: "int", required: false }
+      - label: "Info Window"
+        name: "infoWindow"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Address", name: "address", widget: "string" }
