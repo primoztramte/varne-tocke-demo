@@ -8,9 +8,6 @@ const safeLocations = defineCollection({
     name: z.string(),
     latitude: z.number(),
     longitude: z.number(),
-    icon: z.string(),
-    iconWidth: z.number(),
-    iconHeight: z.number(),
     infoWindow: z.object({
       title: z.string(),
       address: z.string(),
