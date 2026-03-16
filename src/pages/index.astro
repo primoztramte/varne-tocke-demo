@@ -22,6 +22,7 @@ const pins = locations.map((loc) => ({
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
+		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 	</head>
 	<body class="h-screen m-0">
 		<Map
@@ -29,5 +30,16 @@ const pins = locations.map((loc) => ({
       center={[15.0, 46.15]}
       zoom={8.5}
     />
+		<script is:inline>
+			if (window.netlifyIdentity) {
+				window.netlifyIdentity.on("init", (user) => {
+					if (!user) {
+						window.netlifyIdentity.on("login", () => {
+							document.location.href = "/admin/";
+						});
+					}
+				});
+			}
+		</script>
 	</body>
 </html>

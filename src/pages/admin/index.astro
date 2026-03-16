@@ -7,6 +7,17 @@
   </head>
 
   <body>
-    <script type="module" src="/src/scripts/cms.ts"></script>
+    <script type="module" src="../../scripts/cms.ts"></script>
+    <script is:inline>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              window.netlifyIdentity.close();
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>
